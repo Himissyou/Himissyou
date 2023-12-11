@@ -1,0 +1,63 @@
+- - Check game
+if game.PlaceId == 14236123211 then
+      local CurrentVersion = "Yummy - Punch Simulator v1"
+      
+      - - Call the Library
+       local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+       
+       - - Main Frame
+       local GUI = Mercury:Create{
+    Name = "CurrentVersion",
+    Size = UDim2.fromOffset(400, 200),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
+
+        - - Local Var
+        local isFarmingDungeon = false
+        
+        - - local lists
+        local ScamTrade = {
+        ["Fake Huge Snowman"] = "Huge Cool Dragon"
+        ["Fake Huge Witch"] = "Huge Party Goat"
+        ["Fake Cool Dragon"] = "Huge Classy Bear"
+        - - FarmTab Creation
+        local FarmTab = GUI:Tab{
+              Name = "Auto Farm",
+              Icon = "rbxassetid://11715720836"
+         }     
+         
+         
+      
+         FarmTab:Toggle{
+	Name = "Infinite Dungeon",
+	StartingState = false,
+	Description = Dungeon,
+	Callback = function(state)
+	isFarmingDungeon = state
+	while isFarmingDungeon do
+	game:GetService("ReplicatedStorage"):WaitForChild("Punch"):WaitForChild("Tween"):WaitForChild("DungeonPrepare"):InvokeServer()
+	wait()
+game:GetService("ReplicatedStorage"):WaitForChild("Punch"):WaitForChild("Tween"):WaitForChild("DungeonStart"):FireServer()
+	wait()
+local args = {
+       [1] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Punch"):WaitForChild("Tween"):WaitForChild("Infinite"):InvokeServer(unpack(args))
+	wait()
+	local args = {
+	          [1] = true,
+	          [2] = 1,
+	          [3] = 1
+	}
+	
+game:GetService("ReplicatedStorage").Punch.Tween.DungeonReward:FireServer(unpack(args))
+wait()
+	          
+	    end
+end
+}
+
+
+end
