@@ -1,0 +1,19 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LocalPlayer = Players.LocalPlayer
+ 
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+            prompt.HoldDuration = 0
+        end)
+
+
+MainTab:AddToggle({
+  Name = "auto Dungeon",
+  Default = false,
+  Callback = function(value) 
+    autoDungeonEnabled = value
+    autoDungeon(autoDungeonEnabled)
+  end
+})
+    
+    game.Players.LocalPlayer.Character FindFirstChild("Humanoid") then game.Players.LocalPlayer.Character.Humanoid.Health = Player_HP end end
